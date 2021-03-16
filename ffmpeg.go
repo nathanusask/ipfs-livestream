@@ -3,11 +3,12 @@ package main
 import (
 	"errors"
 	"fmt"
-	"ipfs-livestream/cliexec"
 	"path"
 	"runtime"
 	"strings"
 	"time"
+
+	"github.com/nathanusask/ipfs-livestream/cliexec"
 )
 
 type FFMpegController struct {

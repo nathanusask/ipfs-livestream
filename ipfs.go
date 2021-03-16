@@ -4,10 +4,11 @@ import (
 	"encoding/json"
 	"errors"
 	"io/ioutil"
-	"ipfs-livestream/cliexec"
 	"os"
 	"os/exec"
 	"strings"
+
+	"github.com/nathanusask/ipfs-livestream/cliexec"
 )
 
 type IPFSController struct {

@@ -2,8 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"github.com/go-playground/lars"
-	"github.com/pkg/errors"
 	"io"
 	"io/ioutil"
 	"log"
@@ -13,6 +11,9 @@ import (
 	"strconv"
 	"sync/atomic"
 	"time"
+
+	"github.com/go-playground/lars"
+	"github.com/pkg/errors"
 )
 
 const syncFile = "sync.json"
