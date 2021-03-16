@@ -1,0 +1,17 @@
+# github.com/go-playground/form v3.1.4+incompatible
+## explicit
+github.com/go-playground/form
+# github.com/go-playground/lars v4.0.1+incompatible
+## explicit
+github.com/go-playground/lars
+# github.com/gorilla/websocket v1.4.2
+## explicit
+github.com/gorilla/websocket
+# github.com/pkg/errors v0.9.1
+## explicit
+github.com/pkg/errors
+# golang.org/x/net v0.0.0-20210315170653-34ac3e1c2000
+## explicit
+golang.org/x/net/context
+# gopkg.in/go-playground/assert.v1 v1.2.1
+## explicit
