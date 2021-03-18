@@ -5,14 +5,14 @@ import (
 	"flag"
 	"io/ioutil"
 	"log"
-	"os"
 	"time"
-)
 
-func fileExists(filename string) bool {
-	_, err := os.Stat(filename)
-	return !os.IsNotExist(err)
-}
+	"github.com/nathanusask/ipfs-livestream/config"
+
+	"github.com/nathanusask/ipfs-livestream/livestream"
+
+	"github.com/nathanusask/ipfs-livestream/utils"
+)
 
 func main() {
 	configPtr := flag.String("config", "config.json", "a path to configuration")
@@ -21,7 +21,7 @@ func main() {
 
 	flag.Parse()
 
-	if configPtr == nil || !fileExists(*configPtr) {
+	if configPtr == nil || !utils.FileExists(*configPtr) {
 		log.Println("invalid configuration file or path", *configPtr)
 		return
 	}
@@ -42,7 +42,7 @@ func main() {
 		return
 	}
 
-	var config Config
+	var config config.Config
 	err = json.Unmarshal(data, &config)
 	if err != nil {
 		log.Println("failed to unmarshal json of the file", *configPtr)
@@ -56,7 +56,7 @@ func main() {
 		log.Println("stream length is ", time.Duration(int(config.SampleDuration)*(*samplesPtr)))
 	}
 
-	stream := NewLivestream(config.FFmpeg, config.IPFS, config.SamplesPath, config.SampleDuration)
+	stream := livestream.New(config.FFmpeg, config.SamplesPath, config.SampleDuration)
 	err = stream.UseDefaultDevices() // use first devices from the list
 	if err != nil {
 		panic(err)
